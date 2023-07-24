@@ -15,14 +15,14 @@ def run_bots():
 def is_valid_image_size(size):
     try:
         width, height = map(int, size.split())
-        return 1000 >= width >= 0 and 1000 >= height >= 0
+        return 2000 >= width >= 0 and 2000 >= height >= 0
     except ValueError:
         return False
 
 def is_valid_start_coords(coords):
     try:
         x, y = map(int, coords.split())
-        return -1000 <= x <= 1000 and -500 <= y <= 500
+        return -1500 <= x <= 999 and -100 <= y <= 999
     except ValueError:
         return False
 
@@ -148,6 +148,9 @@ thread_delay_label.pack(pady=5)
 thread_delay_entry = tk.Entry(root)
 thread_delay_entry.pack(pady=5)
 
+output_label = tk.Label(root, text="")
+output_label.pack()
+
 # Import Accounts Button
 import_accounts_button = tk.Button(root, text="Import accounts", command=import_accounts)
 import_accounts_button.pack(side=tk.LEFT, padx=5)
@@ -163,9 +166,6 @@ import_config_button.pack(side=tk.LEFT, padx=5)
 # Run button
 run_button = tk.Button(root, text="START 'EM", command=run_bots, fg="red")
 run_button.pack(side=tk.LEFT, padx=5)
-
-output_label = tk.Label(root, text="")
-output_label.pack()
 
 root.mainloop()
 
